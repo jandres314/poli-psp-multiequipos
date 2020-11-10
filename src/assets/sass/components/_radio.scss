@@ -1,0 +1,17 @@
+@import '../variables';
+
+.ant-radio{
+    &-group{
+        height: $s-control;
+        display: flex;
+        &-solid{
+            > .ant-radio-button-wrapper{
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}

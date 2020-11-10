@@ -1,0 +1,5 @@
+<div *ngIf="isLoading" class="app__loading">
+    <nz-spin nzSimple [nzIndicator]="indicatorTemplate"> </nz-spin>
+</div>
+
+<ng-template #indicatorTemplate><em nz-icon nzType="loading"></em></ng-template>

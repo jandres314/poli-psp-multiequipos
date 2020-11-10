@@ -1,0 +1,142 @@
+@import '../variables';
+
+.ant-btn{
+    height: $s-btn;
+    padding: 0 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    background-color: transparent;
+    border-radius: 40px;
+
+    > [class*="fa"]{
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    &.c-1{
+        background-color: $c-1;
+        color: $c-2;
+    }
+    &.c-2{
+        background-color: $c-2;
+        color: $c-wh;
+        &:hover{
+            color: $c-wh;
+        }
+    }
+    &.c-gr{
+        background-color: $c-gr;
+        color: $c-2;
+        &:hover{
+            color: $c-2;
+        }
+    }
+
+    &.redirect{
+        width: 153px;
+        height: 40px;
+    }
+    &.c-transparent{
+        background-color: transparent;
+        &:hover{
+            background-color: $c-gr;
+            color: $c-2;
+        }
+    }
+
+    &-loading{
+        > [class*="fa"]{
+            display: none;
+        }
+        > .anticon{
+            margin-right: 10px;
+        }
+    }
+
+    // custom
+    &.upload-files{
+        min-width: 210px;
+        border: 1px dashed rgba(0, 0, 0, 0.3);
+        border-radius: $d-radius;
+        padding: 10px;
+        height: auto;
+        background-color: transparent;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 auto;
+
+        font-size: $f-parag;
+        font-weight: $f-regular;
+        color: $c-2;
+
+        cursor: pointer;
+        overflow: hidden;
+        transition: all .6s;
+
+        > .icon{
+            min-width: 30px;
+            max-width: 30px;
+            height: 30px;
+            background-color: $c-2;
+            color: $c-wh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1 0 auto;
+
+            border-radius: 100%;
+            margin-right: 10px;
+
+            
+            box-shadow: 0 0 0 0 $c-2;
+            transition: all .2s;
+        }
+
+        > [type="file"]{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        &:hover{
+            border: 1px solid $c-2;
+            color: $c-wh;
+
+            > .icon{
+                box-shadow: 50px 0 0 200px $c-2;
+                background-color: $c-1;
+            }
+        }
+    }
+}
+
+.ng-star-upload{
+    background-color: #eee;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30px;
+    height: 30px;
+    border: none;
+    padding: 6px;
+    color: $c-2;
+    transition: all .2s;
+
+    &:hover{
+        background-color: #bac92e;
+        color: #fff;
+    }
+}

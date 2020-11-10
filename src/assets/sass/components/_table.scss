@@ -1,0 +1,206 @@
+@import "../variables";
+
+.table__default {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    > .ant-spin-nested-loading {
+        height: 100%;
+        overflow: hidden;
+        > .ant-spin-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            > .ant-table {
+                height: 100%;
+                overflow: hidden;
+                > .ant-table-container {
+                    height: 100%;
+                    > .ant-table-content {
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        > .ant-table {
+                            &-header {
+                                flex: 1 0 auto;
+                                &::after {
+                                    content: "";
+                                    width: 18px;
+                                    height: 42px;
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    background-color: #d9dde2;
+                                    border-radius: 0 10px 10px 0;
+                                }
+                            }
+                            &-body {
+                                height: 100%;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+
+                    table {
+                        > thead {
+                            > tr {
+                                &:first-child {
+                                    th {
+                                        background-color: #d9dde2;
+                                        padding: 0 16px;
+                                        height: 41px;
+                                        vertical-align: middle;
+                                        border-bottom: none;
+                                        &:hover {
+                                            background-color: #c9cdd1;
+                                            .ant-table-filter {
+                                                &-trigger-container {
+                                                    background-color: transparent;
+                                                    > .ant-dropdown-trigger {
+                                                        color: $c-2;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .ant-table {
+                                            &-column-title,
+                                            &-column-sorters {
+                                                letter-spacing: 1px;
+                                                text-transform: uppercase;
+                                                padding: 10px 16px;
+                                            }
+                                            &-column-sorters {
+                                                > .ant-table-column-sorter {
+                                                    > .ant-table-column-sorter-inner {
+                                                        > .anticon {
+                                                            &.active {
+                                                                color: $c-2;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .ant-table-filter {
+                                            &-trigger-container {
+                                                > .ant-dropdown-trigger {
+                                                    color: $c-2;
+                                                }
+                                                &:hover {
+                                                    background-color: $c-2;
+                                                    > .ant-dropdown-trigger {
+                                                        color: $c-wh;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:first-child {
+                                            border-radius: 10px 0 0 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // native
+    thead{
+        background-color: #eee;
+        > tr{
+            > th{
+                white-space: nowrap;
+                padding: 15px 10px;
+                font-size: 14px;
+                position: relative;
+
+                &.sorter{
+                    padding-right: 30px;
+                    cursor: pointer;
+                }
+
+                > .order__action{
+                    position: absolute;
+                    top: 50%;
+                    height: 17px;
+                    transform: translateY(-50%);
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    > [class*="fa"]{
+                        font-size: 12px;
+                        line-height: normal;
+                        height: 4px;
+                        color: rgba(0, 0, 0, 0.3);
+                        &:last-child{
+                            margin-bottom: 5px;
+                            margin-bottom: 0;
+                        }
+                    }
+                    &.up{
+                        > [class*="up"]{
+                            color: $c-2;
+                        }
+                    }
+                    &.down{
+                        > [class*="down"]{
+                            color: $c-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    tbody{
+        > tr{
+            transition: all .2s;
+            &:hover{
+                background-color: #eee;
+            }
+            > td{
+                padding: 10px;
+                font-size: 14px;
+                vertical-align: middle;
+
+                > .actions__table{
+                    display: flex;
+                    height: 100%;
+                    align-items: center;
+                    > li{
+                        margin-right: 5px;
+                        > a{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            min-width: 30px;
+                            height: 30px;
+                            padding: 6px;
+                            background-color: #eee;
+                            color: $c-2;
+                            font-weight: 200;
+                            font-size: 13px;
+                            border-radius: 4px;
+                            &:hover{
+                                background-color: $c-1;
+                                color: $c-wh;
+                            }
+                        }
+                        &:last-child{
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.table__responsive{
+    width: 100%;
+    height: auto;
+    overflow: auto;
+}

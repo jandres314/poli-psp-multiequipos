@@ -1,0 +1,58 @@
+// mixin
+@mixin truncate($font-size, $line-height, $lines-to-show) {
+    font-size: $font-size;
+    display: -webkit-inline-box; /* Fallback for non-webkit */
+    max-height: $font-size * $line-height * $lines-to-show + 10px; /* Fallback for non-webkit */
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin scroll($background, $color) {
+    &::-webkit-scrollbar {
+        width: 8px;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $background;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color;
+        outline: 2px solid $background;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+}
+@mixin scrollHor($background, $color) {
+    &::-webkit-scrollbar {
+        height: 8px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $background;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $color;
+        outline: 2px solid $background;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+}
+
+@mixin fontAwesome($codeIcon) {
+    content: $codeIcon;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Pro";
+    line-height: normal;
+}

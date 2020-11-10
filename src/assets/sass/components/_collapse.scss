@@ -1,0 +1,44 @@
+.app__collapse {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    
+    > .ant-collapse {
+        &-item{
+            width: 100%;
+            border: none;
+            margin-bottom: 15px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            > .ant-collapse{
+                &-header{
+                    height: 50px;
+                    padding: 0 20px 0 40px;
+                    display: flex;
+                    align-items: center;
+                    background-color: $c-wh;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    position: relative;
+
+                    > .ant-collapse-extra{
+                        position: absolute;
+                        top: 50%;
+                        right: 10px;
+                        transform: translateY(-50%);
+                        > .ant-btn{
+                            height: 35px;
+                            > .icon{
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+                &-content{
+                    border: none;
+                }
+            }
+        }
+    }
+}

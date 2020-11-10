@@ -1,0 +1,147 @@
+@import "../variables";
+
+.modal {
+    &__create {
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > .ant-modal {
+            padding-bottom: 0;
+            height: 90%;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            > .ant-modal-content {
+                border-radius: 0;
+                overflow: hidden;
+                box-shadow: none;
+                width: 80%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                > .ant-modal {
+                    &-header {
+                        padding: 0;
+                        border: none;
+                        height: 60px;
+                        display: flex;
+                        align-items: center;
+                        > .ant-modal-title {
+                            font-size: $f-title;
+                            font-weight: $f-light;
+                            width: 100%;
+                            height: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            .btn__export{
+
+                            };
+                        }
+                    }
+                    &-body {
+                        padding: 20px 0;
+                        // display: flex;
+                        height: 100%;
+                        overflow: hidden;
+                        > form {
+                            width: 100%;
+                            height: 100%;
+                            overflow: hidden;
+                            display: flex;
+                            > .form {
+                                width: 100%;
+                                height: 100%;
+                                overflow-y: auto;
+                                padding-right: 20px;
+                            }
+                        }
+                        > .upload-files {
+                            width: 250px;
+                            height: 100%;
+                            background-color: $c-gr;
+                            border-radius: $d-radius * 2;
+                            flex: 1 0 auto;
+                            margin-left: 20px;
+                            padding: 20px;
+                            > .ant-form-item {
+                                > .app__upload-files {
+                                    > .upload-files {
+                                        margin-bottom: 15px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &-footer {
+                        border: none;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        > .ant-btn {
+                            height: $s-btn;
+                            color: $c-2;
+                            font-size: 16px;
+                            padding: 0 40px;                            
+                            &-primary {
+                                background-color: $c-2;
+                                color: $c-wh;
+                            }
+
+                            &[disabled="true"]{
+                                opacity: .7;
+                            }
+                        }
+                    }
+                }
+                > .ant-modal-close {
+                    border: none;
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    > .ant-modal-close-x{
+                        font-size: 25px;
+                        opacity: .7;
+                    }
+                }
+            }
+        }
+    }
+    &__auto{
+        height: auto !important;
+        > .ant-modal{
+            height: auto;
+        }
+    }
+    &__confirm,
+    &__error{
+        > .ant-modal {
+            > .ant-modal-content {
+                > .ant-modal-body {
+                    > .ant-modal-confirm-body-wrapper {
+                        > .ant-modal-confirm-btns {
+                            display: flex;
+                            > .ant-btn {
+                                height: 40px;
+                                color: $c-2;
+                                font-size: 16px;
+                                &-primary {
+                                    background-color: $c-2;
+                                    color: $c-wh;
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+        }
+    }
+}
+
+.ant-modal-mask {
+    background-color: $c-wh;
+}

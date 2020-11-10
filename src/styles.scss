@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+@import './assets/sass/reset';
+@import './assets/sass/variables';
+@import './assets/sass/components/button';
+@import './assets/sass/components/table';
+@import './assets/sass/components/modal';
+@import './assets/sass/components/drawer';
+@import './assets/sass/components/forms';
+@import './assets/sass/components/aside-menu';
+@import './assets/sass/components/radio';
+@import './assets/sass/components/pagination';
+@import './assets/sass/components/collapse';
+@import './assets/sass/components/popover';
+
+body{
+    font-family: 'Source Sans Pro', Arial, Helvetica, sans-serif;
+}
+*{
+    box-sizing: border-box;
+}
+
+// titles
+.title{
+    &__ppal{
+        font-size: 30px;
+        line-height: normal;
+        font-weight: $f-light;
+    }
+}
+
+// list
+.list-default{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
