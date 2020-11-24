@@ -25,6 +25,7 @@ export class AppFormInicioComponent implements OnInit {
   textButton: string;
   mensaje = Mensajes.MESSAGE_HELP;
   currencyValue = '0';
+  listaOpciones = [{clave : 'Si', valor: 'Si'}, {clave : 'No', valor: 'No'}];
 
   constructor(
     private utils: Utils,

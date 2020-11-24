@@ -1,5 +1,6 @@
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Información preliminar" (nzOnCancel)="handleCancel()" (nzOnOk)="nextForm()" nzOkLoading="{{isLoading}}" nzOkDisabled="{{isLoading}}" nzMaskClosable="false" nzWrapClassName="modal__create" nzWidth="750"
-    nzOkText="{{textButton}}" nzCancelText="Cancelar" nzClosable="{{!isLoading}}">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Información preliminar" (nzOnCancel)="handleCancel()" (nzOnOk)="nextForm()"
+    nzOkLoading="{{isLoading}}" nzOkDisabled="{{isLoading}}" nzMaskClosable="false" nzWrapClassName="modal__create"
+    nzWidth="750" nzOkText="{{textButton}}" nzCancelText="Cancelar" nzClosable="{{!isLoading}}">
     <form [formGroup]="contractRequest">
         <div class="form">
             <div nz-row [nzGutter]="[16, 24]">
@@ -8,7 +9,10 @@
                         <div nz-col class="gutter-row" [nzSpan]="field.nzSpan">
                             <nz-form-item class="required" *ngSwitchCase="'automatic'">
                                 <label class="required">{{field.label}}</label>
-                                <input nz-input [readonly]="field.disabled" [value]="field.value" [type]="field.typeField" [minLength]="field.minLength" [maxlength]="field.maxLength " [formControlName]="field.fieldName" (ngModelChange)="validateChange(field)" />
+                                <input nz-input [readonly]="field.disabled" [value]="field.value"
+                                    [type]="field.typeField" [minLength]="field.minLength"
+                                    [maxlength]="field.maxLength " [formControlName]="field.fieldName"
+                                    (ngModelChange)="validateChange(field)" />
                             </nz-form-item>
                             <nz-form-item class="required" *ngSwitchCase="'currency'">
                                 <label>{{field.label}}
@@ -16,18 +20,32 @@
                                         <em class="fas fa-info-circle"></em>
                                     </div>
                                 </label>
-                                <input nz-input currencyMask [options]="{allowNegative: false, prefix: '$ ', thousands: '.', decimal: ',', align: 'left' }" [placeholder]="field.placeholder" [value]="field.value" [type]="field.typeField" [minLength]="field.minLength" [maxlength]="field.maxLength + 6"
+                                <input nz-input currencyMask
+                                    [options]="{allowNegative: false, prefix: '$ ', thousands: '.', decimal: ',', align: 'left' }"
+                                    [placeholder]="field.placeholder" [value]="field.value" [type]="field.typeField"
+                                    [minLength]="field.minLength" [maxlength]="field.maxLength + 6"
                                     [formControlName]="field.fieldName" (ngModelChange)="validateChange(field)" />
                             </nz-form-item>
                             <nz-form-item class=" required" *ngSwitchCase="'number'">
                                 <label>{{field.label}}</label>
-                                <input nz-input [placeholder]="field.placeholder" [value]="field.value" [minLength]="field.minLength" [maxlength]="field.maxLength" [formControlName]="field.fieldName" (ngModelChange)="validateChange(field)" (keypress)="validateOnlyNumbers($event, field.type)"
-                                />
+                                <input nz-input [placeholder]="field.placeholder" [value]="field.value"
+                                    [minLength]="field.minLength" [maxlength]="field.maxLength"
+                                    [formControlName]="field.fieldName" (ngModelChange)="validateChange(field)"
+                                    (keypress)="validateOnlyNumbers($event, field.type)" />
+                            </nz-form-item>
+                            <nz-form-item *ngSwitchCase="'fecha'"
+                                [ngClass]="{'required': field.obligatorio}">
+                                <label for="">{{field.label}}</label>
+                                <nz-date-picker [formControlName]="field.nombre"
+                                    [id]="field.nombre">
+                                </nz-date-picker>
                             </nz-form-item>
                             <nz-form-item class="required" *ngSwitchCase="'list'">
                                 <label>{{field.label}}</label>
-                                <nz-select nzPlaceHolder="Seleccionar" [formControlName]="field.fieldName" [id]="field.fieldName" (ngModelChange)="validateChange(field)">
-                                    <nz-option *ngFor="let data of getDataList(field.listName)" nzValue="{{data.clave}}" nzLabel="{{data.valor}}">
+                                <nz-select nzPlaceHolder="Seleccionar" [formControlName]="field.fieldName"
+                                    [id]="field.nombre">
+                                    <nz-option *ngFor="let data of listaOpciones" nzValue="{{data.clave}}"
+                                        nzLabel="{{data.valor}}">
                                     </nz-option>
                                 </nz-select>
                             </nz-form-item>
