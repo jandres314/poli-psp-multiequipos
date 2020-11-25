@@ -47,6 +47,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { HeaderComponent } from './header/header.component';
 import { AppFormInicioComponent } from './app-form-inicio/app-form-inicio.component';
+import { BandejaSolicitudComponent } from './bandeja-solicitud/bandeja-solicitud.component';
+import { SearchComponent } from './search/search.component';
 
 registerLocaleData(es);
 
@@ -58,6 +60,8 @@ registerLocaleData(es);
     LoadingComponent,
     HeaderComponent,
     AppFormInicioComponent,
+    BandejaSolicitudComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<nz-drawer [nzClosable]="true" [nzMaskClosable]="false" [nzVisible]="visible" nzPlacement="right" nzWrapClassName="app__drawer" nzTitle="Búsqueda de solicitudes" (nzOnClose)="close()" nzWidth='500px'>
+    <div class="form">
+        <div nz-row [nzGutter]="[16, 0]">
+            <div nz-col class="gutter-row" [nzSpan]="12">
+                <nz-form-item>
+                    <label for="">Nombre de dispositivo</label>
+                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                </nz-form-item>
+                <nz-form-item>
+                    <label for="">Disponibles</label>
+                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                </nz-form-item>
+                <nz-form-item>
+                    <label for="">Precio</label>
+                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                </nz-form-item>
+                <nz-form-item>
+                    <label for="">Comercial</label>
+                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                </nz-form-item>
+                <nz-form-item>
+                    <label for="">Valor de aprobación</label>
+                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                </nz-form-item>
+            </div>
+            
+        </div>
+        <app-loading *ngIf="isLoading"></app-loading>
+    </div>
+    <div class="drawer__actions">
+        <button [disabled]="isLoading" nz-button class="c-2" (click)="buscar()">
+            <em class="fal fa-search"></em>
+            Buscar
+        </button>
+        <button [disabled]="isLoading" nz-button class="" (click)="limpiarFiltros()">
+            <em class="fal fa-trash"></em>
+            Limpiar filtros
+        </button>
+    </div>
+</nz-drawer>

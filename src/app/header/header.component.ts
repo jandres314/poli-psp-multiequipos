@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   }
 
   abrirBusqueda(): void {
+    console.log('abrir busqueda');
     this.genericsService.showBusqueda(true);
     }
 
