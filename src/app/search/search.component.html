@@ -8,22 +8,13 @@
                 </nz-form-item>
                 <nz-form-item>
                     <label for="">Disponibles</label>
-                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                    <input type="number" nz-input placeholder="" [(ngModel)]="filtroDisponibles.valor" />
                 </nz-form-item>
                 <nz-form-item>
                     <label for="">Precio</label>
-                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
-                </nz-form-item>
-                <nz-form-item>
-                    <label for="">Comercial</label>
-                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
-                </nz-form-item>
-                <nz-form-item>
-                    <label for="">Valor de aprobación</label>
-                    <input nz-input placeholder="" [(ngModel)]="filtroNombreDispositivo.valor" />
+                    <input type="number" nz-input placeholder="" [(ngModel)]="filtroPrecio.valor" />
                 </nz-form-item>
             </div>
-            
         </div>
         <app-loading *ngIf="isLoading"></app-loading>
     </div>

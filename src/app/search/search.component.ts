@@ -25,6 +25,8 @@ export class SearchComponent implements OnInit {
   filtroBusqueda: Condiciones[] = [];
 
   filtroNombreDispositivo: Condiciones = new Condiciones();
+  filtroDisponibles: Condiciones = new Condiciones();
+  filtroPrecio: Condiciones = new Condiciones();
 
 
   constructor(
@@ -41,12 +43,14 @@ export class SearchComponent implements OnInit {
   }
 
   instanciarFiltros(): void {
-    this.filtroNombreDispositivo = { campo: 'Nombre de dispositivo', operador: 'like', tipoDato: 'STRING' };
+    this.filtroNombreDispositivo = { campo: 'nombreDispositivo', operador: 'like', tipoDato: 'STRING' };
+    this.filtroDisponibles = { campo: 'disponibles', operador: 'mayorQue', tipoDato: 'NUMBER' };
+    this.filtroPrecio = { campo: 'precio', operador: 'mayorQue', tipoDato: 'NUMBER' };
   }
 
   buscar(): void {
     this.setFiltrosBusqueda();
-    if (true || this.filtroBusqueda.length > 0) {
+    if (this.filtroBusqueda.length > 0) {
       this.getSolicitudes();
     }
   }
@@ -65,11 +69,19 @@ export class SearchComponent implements OnInit {
     if (this.filtroNombreDispositivo.valor) {
       this.filtroBusqueda.push(this.filtroNombreDispositivo);
     }
+    if (this.filtroDisponibles.valor) {
+      this.filtroBusqueda.push(this.filtroDisponibles);
+    }
+    if (this.filtroPrecio.valor) {
+      this.filtroBusqueda.push(this.filtroPrecio);
+    }
   }
 
   limpiarFiltros(): void {
     this.filtroBusqueda = [];
     this.filtroNombreDispositivo.valor = '';
+    this.filtroDisponibles.valor = '';
+    this.filtroPrecio.valor = '';
   }
 
   showLoading(): void {

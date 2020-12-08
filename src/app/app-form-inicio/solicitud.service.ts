@@ -22,8 +22,28 @@ export class SolicitudService {
 
   consultarSolicitudes(filtro: Condiciones[]): void {
     this.resultadoBusquedaSolicitudes = this.solicitudes.filter(value => {
-      return true;
+      return this.filtrarValor(value, filtro);
     });
+    console.log('resultado: ', this.resultadoBusquedaSolicitudes.length);
+  }
+
+  private filtrarValor(value: any, condiciones: Condiciones[]): boolean {
+    let condicionesCumplidas = 0;
+    condiciones.forEach(condicion => {
+      if (condicion.tipoDato === 'STRING') {
+        const valor: string = value[condicion.campo];
+        if (valor.toUpperCase().includes(condicion.valor.toUpperCase())) {
+          condicionesCumplidas++;
+        }
+      } else {
+        const valor: number = parseFloat(value[condicion.campo]);
+        const valorFiltro: number = parseFloat(condicion.valor);
+        if (valor > valorFiltro) {
+          condicionesCumplidas++;
+        }
+      }
+    });
+    return condicionesCumplidas === condiciones.length;
   }
 
   showTabla(isChange): void {
