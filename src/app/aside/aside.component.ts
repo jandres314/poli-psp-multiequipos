@@ -10,14 +10,16 @@ import { Router } from '@angular/router';
 })
 export class AsideComponent {
 
-  listaBandejas: any[] = [];
-
   constructor(
     private genericsService: GenericsService
     ) { }
 
   nuevaSolicitud(): void {
     this.genericsService.showSolicitud(true);
+  }
+
+  abrirBusqueda(): void {
+    this.genericsService.showBusqueda(true);
   }
 
 }

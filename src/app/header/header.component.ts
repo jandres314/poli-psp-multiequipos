@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GenericsService } from '../generics/generics.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +7,9 @@ import { GenericsService } from '../generics/generics.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private genericsService: GenericsService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-  abrirBusqueda(): void {
-    console.log('abrir busqueda');
-    this.genericsService.showBusqueda(true);
-    }
 
 }

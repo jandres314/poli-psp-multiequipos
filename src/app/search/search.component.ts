@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import getISOWeek from 'date-fns/getISOWeek';
 import { GenericsService } from '../generics/generics.service';
 import { Condiciones } from './model/condiciones';
-import { ErrorHandlerRequestResponseService } from '../generics/error-handler-request-response.service';
 import { Router } from '@angular/router';
 import { ListasService } from 'src/app/generics/listas.service';
 import { SolicitudService } from '../app-form-inicio/solicitud.service';
@@ -34,7 +33,6 @@ export class SearchComponent implements OnInit {
     private router: Router,
     private genericsService: GenericsService,
     private busquedaService: SolicitudService,
-    private errorHandlerRequestResponseService: ErrorHandlerRequestResponseService,
     private listaService: ListasService) {
     this.genericsService.openBusqueda.subscribe(isVisible => {
       this.visible = isVisible;
@@ -62,7 +60,6 @@ export class SearchComponent implements OnInit {
 
   getSolicitudes(): void {
     this.showLoading();
-    this.busquedaService.listaSolicitudes = this.busquedaService.consultarSolicitudes(this.filtroBusqueda);
     this.busquedaService.showTabla(true);
     this.hideLoading();
     this.close();
@@ -88,14 +85,6 @@ export class SearchComponent implements OnInit {
 
   hideLoading(): void {
     this.isLoading = false;
-  }
-
-  onChange(result: Date, tipoFecha: string): void {
-
-  }
-
-  getWeek(result: Date): void {
-    console.log('week: ', getISOWeek(result));
   }
 
   open(): void {
