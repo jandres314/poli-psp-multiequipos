@@ -1,1 +1,42 @@
-<p>bandeja-solicitud works!</p>
+<div class="app__board">
+    <div class="container__table">
+        <div class="container__table-header">
+            <h2 class="title__ppal">
+                Solicitudes
+            </h2>
+        </div>
+        <div class="table__responsive" *ngIf="listOfColumns && listOfColumns.length > 0">
+            <table class="table__default" aria-describedby="lista tareas">
+                <thead>
+                    <tr>
+                        <ng-template ngFor let-columnas [ngForOf]="listOfColumns" let-i="index">
+                            <th class="sorter" scope="col">
+                                <span>{{columnas.label}}</span>
+                            </th>
+                        </ng-template>
+                    </tr>
+                </thead>
+                <tbody class="space-for-actions">
+                    <ng-template ngFor let-fila [ngForOf]="listOfData" let-i="index">
+                        <tr>
+                            <ng-template ngFor let-columna [ngForOf]="listOfColumns">
+                                <td *ngIf="columna.tipo==='texto'">{{fila[columna.nombre]}}</td>
+                                <td *ngIf="columna.tipo==='fecha'">{{transformFecha(fila[columna.nombre])}}</td>
+                            </ng-template>
+                            <td>
+                                <ul class="actions__table">
+                                    <li>
+                                        <a href="javascript:;" (click)="eliminarRegistro(fila.id)">
+                                            <em class="fa fa-window-close"></em>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<app-modal-trazabilidad *ngIf="listOfData && listOfData.length > 0"></app-modal-trazabilidad>

@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit {
 
   buscar(): void {
     this.setFiltrosBusqueda();
-    if (this.filtroBusqueda.length > 0) {
+    if (true || this.filtroBusqueda.length > 0) {
       this.getSolicitudes();
     }
   }

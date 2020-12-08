@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudService } from '../app-form-inicio/solicitud.service';
 import {BandejaBusquedaSolicitudes} from '../mocks/bandeja-busqueda-solicitudes';
 
 @Component({
@@ -14,12 +15,15 @@ export class BandejaSolicitudComponent implements OnInit {
   listOfColumns: any[] = new Array();
   listOfData: any[];
 
-  constructor() { }
+  constructor(private solicitudService: SolicitudService) {
+    this.solicitudService.listaSolicitudes.subscribe(data => {
+      this.listOfData = data;
+    });
+   }
 
   ngOnInit(): void {
     this.configuracionBandeja = BandejaBusquedaSolicitudes;
     this.configurarColumnas();
-    // this.llenarListaData();
   }
 
   configurarColumnas(): void {
@@ -36,6 +40,13 @@ export class BandejaSolicitudComponent implements OnInit {
         }
       });
     }
+  }
+
+  eliminarRegistro(id: number): void {
+    this.solicitudService.eliminarSolicitud(id);
+    this.listOfData = this.listOfData.filter(value => {
+      return value.id !== id;
+    });
   }
 
 }
