@@ -36,8 +36,8 @@
                             <nz-form-item *ngSwitchCase="'fecha'"
                                 [ngClass]="{'required': field.obligatorio}">
                                 <label for="">{{field.label}}</label>
-                                <nz-date-picker [formControlName]="field.nombre"
-                                    [id]="field.nombre">
+                                <nz-date-picker [formControlName]="field.fieldName"
+                                    [id]="field.fieldName">
                                 </nz-date-picker>
                             </nz-form-item>
                             <nz-form-item class="required" *ngSwitchCase="'list'">

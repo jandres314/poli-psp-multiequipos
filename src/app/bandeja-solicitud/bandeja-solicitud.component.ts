@@ -13,17 +13,15 @@ export class BandejaSolicitudComponent implements OnInit {
   configuracionColumnas: any[];
 
   listOfColumns: any[] = new Array();
-  listOfData: any[];
+  listOfData: any[] = new Array();
 
   constructor(private solicitudService: SolicitudService) {
-    this.solicitudService.listaSolicitudes.subscribe(data => {
-      this.listOfData = data;
-    });
    }
 
   ngOnInit(): void {
     this.configuracionBandeja = BandejaBusquedaSolicitudes;
     this.configurarColumnas();
+    this.listOfData = this.solicitudService.resultadoBusquedaSolicitudes;
   }
 
   configurarColumnas(): void {

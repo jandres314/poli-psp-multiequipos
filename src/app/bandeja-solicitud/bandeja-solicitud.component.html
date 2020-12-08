@@ -5,7 +5,7 @@
                 Solicitudes
             </h2>
         </div>
-        <div class="table__responsive" *ngIf="listOfColumns && listOfColumns.length > 0">
+        <div class="table__responsive" >
             <table class="table__default" aria-describedby="lista tareas">
                 <thead>
                     <tr>
@@ -21,7 +21,6 @@
                         <tr>
                             <ng-template ngFor let-columna [ngForOf]="listOfColumns">
                                 <td *ngIf="columna.tipo==='texto'">{{fila[columna.nombre]}}</td>
-                                <td *ngIf="columna.tipo==='fecha'">{{transformFecha(fila[columna.nombre])}}</td>
                             </ng-template>
                             <td>
                                 <ul class="actions__table">

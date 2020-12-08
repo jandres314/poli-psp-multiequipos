@@ -9,19 +9,21 @@ export class SolicitudService {
 
   private static id = 0;
   private solicitudes: any[] = [];
+  resultadoBusquedaSolicitudes: any[] = [];
   isData = new Subject<boolean>();
-  listaSolicitudes = new Subject<any[]>();
 
   constructor() { }
 
   saveApplicant(data: any): Promise<any> {
-    data.id = SolicitudService.id++;
+    data.id = ++SolicitudService.id;
     this.solicitudes.push(data);
     return Promise.resolve(true);
   }
 
   consultarSolicitudes(filtro: Condiciones[]): void {
-    this.listaSolicitudes.next([...this.solicitudes]);
+    this.resultadoBusquedaSolicitudes = this.solicitudes.filter(value => {
+      return true;
+    });
   }
 
   showTabla(isChange): void {

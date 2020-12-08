@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import getISOWeek from 'date-fns/getISOWeek';
 import { GenericsService } from '../generics/generics.service';
 import { Condiciones } from './model/condiciones';
 import { Router } from '@angular/router';
-import { ListasService } from 'src/app/generics/listas.service';
 import { SolicitudService } from '../app-form-inicio/solicitud.service';
 
 @Component({
@@ -32,8 +30,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private router: Router,
     private genericsService: GenericsService,
-    private busquedaService: SolicitudService,
-    private listaService: ListasService) {
+    private solicitudService: SolicitudService) {
     this.genericsService.openBusqueda.subscribe(isVisible => {
       this.visible = isVisible;
     });
@@ -47,10 +44,6 @@ export class SearchComponent implements OnInit {
     this.filtroNombreDispositivo = { campo: 'Nombre de dispositivo', operador: 'like', tipoDato: 'STRING' };
   }
 
-  getDataList(keyList: string): any[] {
-    return this.listaService.getList(keyList);
-  }
-
   buscar(): void {
     this.setFiltrosBusqueda();
     if (true || this.filtroBusqueda.length > 0) {
@@ -60,10 +53,11 @@ export class SearchComponent implements OnInit {
 
   getSolicitudes(): void {
     this.showLoading();
-    this.busquedaService.showTabla(true);
+    this.solicitudService.showTabla(true);
     this.hideLoading();
     this.close();
     this.router.navigate(['/bandejaSolicitud']);
+    this.solicitudService.consultarSolicitudes(this.filtroBusqueda);
   }
 
   setFiltrosBusqueda(): void {
@@ -72,7 +66,6 @@ export class SearchComponent implements OnInit {
       this.filtroBusqueda.push(this.filtroNombreDispositivo);
     }
   }
-
 
   limpiarFiltros(): void {
     this.filtroBusqueda = [];
