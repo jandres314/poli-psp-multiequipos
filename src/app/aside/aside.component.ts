@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GenericsService } from '../generics/generics.service';
-import { ErrorHandlerRequestResponseService } from '../generics/error-handler-request-response.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside',
@@ -12,7 +10,7 @@ export class AsideComponent {
 
   constructor(
     private genericsService: GenericsService
-    ) { }
+  ) { }
 
   nuevaSolicitud(): void {
     this.genericsService.showSolicitud(true);

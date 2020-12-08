@@ -50,6 +50,7 @@ import { AppFormInicioComponent } from './app-form-inicio/app-form-inicio.compon
 import { BandejaSolicitudComponent } from './bandeja-solicitud/bandeja-solicitud.component';
 import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 registerLocaleData(es);
 
@@ -63,7 +64,8 @@ registerLocaleData(es);
     AppFormInicioComponent,
     BandejaSolicitudComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,

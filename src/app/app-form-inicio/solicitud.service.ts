@@ -34,4 +34,8 @@ export class SolicitudService {
     });
   }
 
+  contarElementos(): number {
+    return this.solicitudes.length;
+  }
+
 }
